@@ -2,8 +2,8 @@
 Celestial Bodies Database
 ----------------------------
 
-Database: &nbsp;&nbsp;&nbsp;**[PostgrSQL](https://www.postgresql.org/download/)**
-Code Editor: &nbsp;&nbsp;&nbsp;**[VS-Code](https://code.visualstudio.com/)**
+Database: &nbsp;&nbsp;&nbsp;**[PostgrSQL](https://www.postgresql.org/download/)** <br/>
+Code Editor: &nbsp;&nbsp;&nbsp;**[VS-Code](https://code.visualstudio.com/)** <br/>
 VS-CODE Terminal: &nbsp;&nbsp;&nbsp;**[Git Bash](https://git-scm.com/downloads)**
 
 Complete the tasks below
