@@ -23,7 +23,7 @@ Complete the tasks below
 - Your database should have at least five tables
 - Each table should have at least three rows
 - The galaxy and star tables should each have at least six rows
-- The planet table should have at least 12 rows
+- The planet table should have at least 12 rows - but we only have 8 planets both inside and outside of Solar system!!
 - The moon table should have at least 20 rows
 - Each table should have at least three columns
 - The galaxy, star, planet, and moon tables should each have at least five columns
