@@ -2,6 +2,7 @@
 Celestial Bodies Database
 ----------------------------
 
+Database: **[PostgrSQL](https://www.postgresql.org/download/)**
 
 Complete the tasks below
 -------------------------------
