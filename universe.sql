@@ -1,4 +1,7 @@
 
+------------------------------------------------------------
+1. Create Database and connect to it
+------------------------------------------------------------
 
 psql --username=freecodecamp --dbname=postgres
 
@@ -6,26 +9,68 @@ CREATE DATABASE universe;
 \c universe;
 
 
-CREATE TABLE star(star_id SERIAL NOT NULL PRIMARY KEY, name VARCHAR(30) NOT NULL UNIQUE, radius_in_km INT, age_in_million INT, distance_from_earth NUMERIC, has_life BOOLEAN, is_spherical BOOLEAN, description TEXT);
-        ALTER TABLE star ADD COLUMN galaxy_id INT REFERENCES galaxy(galaxy_id);
+------------------------------------------------------------
+2. Create tables as required conditions
+------------------------------------------------------------
+
+CREATE TABLE galaxy(
+    galaxy_id SERIAL NOT NULL PRIMARY KEY, 
+    name VARCHAR(30) NOT NULL UNIQUE, 
+    galaxy_types VARCHAR(20), 
+    age_in_million INT, 
+    size_in_lightYear INT, 
+    radius_in_km NUMERIC, 
+    has_life BOOLEAN, 
+    is_spherical BOOLEAN, 
+    description TEXT
+ );
+
+CREATE TABLE star(
+    star_id SERIAL NOT NULL PRIMARY KEY, 
+    name VARCHAR(30) NOT NULL UNIQUE, 
+    radius_in_km INT, 
+    age_in_million INT, 
+    distance_from_earth NUMERIC, 
+    has_life BOOLEAN, 
+    is_spherical BOOLEAN, 
+    description TEXT
+ );
+
+CREATE TABLE planet(
+    planet_id SERIAL NOT NULL PRIMARY KEY, 
+    name VARCHAR(30) NOT NULL UNIQUE, 
+    planet_types VARCHAR(20), 
+    radius_in_km INT, 
+    age_in_million INT, 
+    distance_from_earth NUMERIC, 
+    has_life BOOLEAN, 
+    is_spherical BOOLEAN, 
+    description TEXT
+ );
+
+CREATE TABLE moon(
+    moon_id SERIAL NOT NULL PRIMARY KEY, 
+    name VARCHAR(30) NOT NULL UNIQUE, 
+    radius_in_km INT, 
+    age_in_million INT, 
+    distance_from_planet NUMERIC, 
+    has_life BOOLEAN, 
+    is_spherical BOOLEAN, 
+    description TEXT
+ );
+
+CREATE TABLE constellation(
+    constellation_id SERIAL NOT NULL PRIMARY KEY, 
+    name VARCHAR(30) NOT NULL UNIQUE
+);
 
 
-CREATE TABLE star(star_id SERIAL NOT NULL PRIMARY KEY, name VARCHAR(30) NOT NULL UNIQUE, radius_in_km INT, age_in_million INT, distance_from_earth NUMERIC, has_life BOOLEAN, is_spherical BOOLEAN, description TEXT);
-ALTER TABLE star ADD COLUMN galaxy_id INT REFERENCES galaxy(galaxy_id);
 
+------------------------------------------------------------
+3. Fill the tables as required data conditions
+------------------------------------------------------------
 
-CREATE TABLE planet(planet_id SERIAL NOT NULL PRIMARY KEY, name VARCHAR(30) NOT NULL UNIQUE, planet_type VARCHAR(20), radius_in_km INT, age_in_million INT, distance_from_earth NUMERIC, has_life BOOLEAN, is_spherical BOOLEAN, description TEXT);
-ALTER TABLE planet ADD COLUMN star_id INT REFERENCES star(star_id);
-
-
-CREATE TABLE moon(moon_id SERIAL NOT NULL PRIMARY KEY, name VARCHAR(30) NOT NULL UNIQUE, radius_in_km INT, age_in_million INT, distance_from_planet NUMERIC, has_life BOOLEAN, is_spherical BOOLEAN, description TEXT);
-ALTER TABLE moon ADD COLUMN planet_id INT REFERENCES planet(planet_id);
-
-CREATE TABLE constellation(constellation_id SERIAL NOT NULL PRIMARY KEY, constellation_name VARCHAR(30) NOT NULL UNIQUE);
-ALTER TABLE star ADD COLUMN constellation_id INT REFERENCES constellation(constellation_id);
-
-
-INSERT INTO galaxy(name, galaxy_type, age_in_million, size_in_lightYear, radius_in_km, has_life, is_spherical, description) 
+INSERT INTO galaxy(name, galaxy_types, age_in_million, size_in_lightYear, radius_in_km, has_life, is_spherical, description) 
 VALUES
     ('Andromeda', 'Spirals', 10, 260000, 1.0407*10^18, TRUE, TRUE, 'Andromeda, also known as Messier 31 (M31), is a spiral galaxy located about 2.5 million light years away.'),
     ('Black Eye', 'Spirals', 17, 70000, 2.5053*10^17, TRUE, TRUE, 'The Black Eye Galaxy is a relatively isolated spiral galaxy 17 million light-years away in the mildly northern constellation of Coma Berenices. It was discovered by Edward Pigott in March 1779, and independently by Johann Elert Bode in April of the same year, as well as by Charles Messier the next year.'),
@@ -38,7 +83,7 @@ VALUES
 INSERT INTO constellation(constellation_name) VALUES ('Cassiopeia'), ('Aquarius'), ('Aries'), ('Auriga'), ('Aquila'), ('Ara'), ('Apus'), ('Antlia'), ('Carina'), ('Leo'), ('Hercules');
 
 
-INSERT INTO star(name, radius_in_km, age_in_million, distance_from_earth, has_life, is_spherical, description, galaxy_id, constellation_id) 
+INSERT INTO star(star_name, radius_in_km, age_in_million, distance_from_earth, has_life, is_spherical, description, galaxy_id, constellation_id) 
 VALUES
     ('Mirach', 69.57, 3.1, 96.87, TRUE, TRUE, 'Alpheratz, or Alpha Andromedae, is a bright star 97 light-years from the Sun \nand is the brightest star in the constellation of Andromeda when Beta Andromedae undergoes its periodical dimming.',  1, 4),
     ('Arcturus', 17.671, 7.1, 36.66, TRUE, FALSE, 'Arcturus is the brightest star in the northern constellation of Boötes. \nWith an apparent visual magnitude of −0.05, it is the fourth-brightest star in the night sky, and the brightest in the northern celestial hemisphere.',  2, 7),
@@ -48,7 +93,7 @@ VALUES
     ('Regulus', 455535, 100, 77.63, TRUE, TRUE, 'Regulus is the brightest object in the constellation Leo and one of the brightest stars in the night sky. \nIt has the Bayer designation designated α Leonis, which is Latinized to Alpha Leonis, and abbreviated Alpha Leo or α Leo', 6, 6);
 
 
-INSERT INTO planet(name, planet_type, radius_in_km, age_in_million, distance_from_earth, has_life, is_spherical, description, star_id) 
+INSERT INTO planet(name, planet_types, radius_in_km, age_in_million, distance_from_earth, has_life, is_spherical, description, star_id) 
 VALUES
     ('Mercury', 'Elliptical', 4879, 4.6, 48, FALSE, TRUE, 'Mercury is the first planet from the Sun and the smallest in the Solar System. \nIt is a terrestrial planet with a heavily cratered surface due to overlapping impact events. \nThese features are well preserved since the planet has no geological activity and an extremely tenuous atmosphere called an exosphere.', 8),
     ('Venus', 'Circular', 12104, 500, 147.92, FALSE, TRUE, 'Venus is the second planet from the Sun. It is a rocky planet with the densest atmosphere of all the rocky bodies in the Solar System, and the only one with a mass and size that is close to that of its orbital neighbour Earth.', 8),
@@ -85,3 +130,27 @@ VALUES
 ('Triton', 1353, NULL, 354760, FALSE, TRUE, 'Triton is the seventh-largest moon in the solar system, with a surface of diverse and includes icy plains, ridges, valleys, and impact craters.', 8),
 ('Nereid', 180, NULL, 5513400, FALSE, FALSE, 'Nereid is a small moon with an irregular shape. It has a highly eccentric and inclined orbit around Neptune.', 8),
 ('Larissa', 97, NULL, 73500, FALSE, FALSE, 'Larissa is one of the smaller moons of Neptune with an irregular shape.', 8);
+
+
+
+------------------------------------------------------------
+4. Foreign Key assignment
+------------------------------------------------------------
+
+ALTER TABLE galaxy ADD FOREIGN KEY star_id INT REFERENCES star(star_id)
+ALTER TABLE star ADD COLUMN galaxy_id REFERENCES galaxy(galaxy_id);
+ALTER TABLE star   ADD FOREIGN KEY planet_id INT REFERENCES planet(planet_id)
+ALTER TABLE planet ADD COLUMN star_id INT REFERENCES star(star_id);
+ALTER TABLE planet ADD FOREIGN KEY moon_id INT REFERENCES moon(moon_id)
+ALTER TABLE moon ADD COLUMN planet_id INT REFERENCES planet(planet_id);
+
+
+
+------------------------------------------------------------
+5. Compact sql db queries into universe.sql file
+------------------------------------------------------------
+
+pg_dump -cC --inserts -U freecodecamp universe > universe.sql
+
+
+
