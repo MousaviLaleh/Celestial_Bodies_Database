@@ -1,12 +1,12 @@
 
-Celestial Bodies Database
-----------------------------
+# Celestial Bodies Database
+![](Celestial.jpg)
 
 Database: &nbsp;&nbsp;&nbsp;**[PostgrSQL](https://www.postgresql.org/download/)** <br/>
 Code Editor: &nbsp;&nbsp;&nbsp;&nbsp;**[VS-Code](https://code.visualstudio.com/)** <br/>
 VS-CODE Terminal: &nbsp;&nbsp;&nbsp;**[Git Bash](https://git-scm.com/downloads)**
 
-Complete the tasks below
+## Complete the tasks below
 -------------------------------
 
 - You should create a database named universe
