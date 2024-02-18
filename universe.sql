@@ -102,7 +102,11 @@ VALUES
     ('Jupiter', 'Elliptical', 139820, 11.86, 588, FALSE, TRUE, 'Jupiter is the fifth planet from the Sun and the largest in the Solar System. \nIt is a gas giant with a mass more than two and a half times that of all the other planets in the Solar System combined, and slightly less than one one-thousandth the mass of the Sun.', 8),
     ('Saturn', 'Elliptical', 120536, 400, 1.5345, FALSE, FALSE, 'Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. \nIt is a gas giant with an average radius of about nine-and-a-half times that of Earth. It has only one-eighth the average density of Earth, but is over 95 times more massive.', 8),
     ('Uranus', 'Elliptical', 51118, 4.6, 2.8336, FALSE, TRUE, 'Uranus is the seventh planet from the Sun. It is a gaseous cyan-coloured ice giant. \nMost of the planet is made of water, ammonia, and methane in a supercritical phase of matter, which in astronomy is called ''ice'' or volatiles.', 8),
-    ('Neptune', '', 49528, 4.6, 4.5031, FALSE, TRUE, 'Neptune is the eighth and farthest planet from the Sun. It is the fourth-largest planet in the Solar System by diameter, the third-most-massive planet, and the densest giant planet. \nIt is 17 times the mass of Earth, and slightly more massive than its near-twin Uranus.', 8);
+    ('Neptune', '', 49528, 4.6, 4.5031, FALSE, TRUE, 'Neptune is the eighth and farthest planet from the Sun. It is the fourth-largest planet in the Solar System by diameter, the third-most-massive planet, and the densest giant planet. \nIt is 17 times the mass of Earth, and slightly more massive than its near-twin Uranus.', 8),
+    ('Planet9', '', 49528, 4.6, 4.5031, FALSE, TRUE, 'LoremIpson', 9),
+    ('Planet10', '', 25528, 4.6, 4.5031, FALSE, TRUE, 'LoremIpson', 10),
+    ('Planet11', '', 49528, 4.6, 4.5031, FALSE, TRUE, 'LoremIpson', 11),
+    ('Planet12', '', 49528, 4.6, 4.5031, FALSE, TRUE, 'LoremIpson', 12);
 
 
 
