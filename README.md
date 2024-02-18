@@ -1,6 +1,7 @@
 
 # Celestial Bodies Database
 ![](Celestial.jpg)
+:copyright: [freeCodeCamp](https://www.freecodecamp.org/learn/relational-database/) Relational Database Course
 
 Database: &nbsp;&nbsp;&nbsp;**[PostgrSQL](https://www.postgresql.org/download/)** <br/>
 Code Editor: &nbsp;&nbsp;&nbsp;&nbsp;**[VS-Code](https://code.visualstudio.com/)** <br/>
